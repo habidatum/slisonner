@@ -1,11 +1,9 @@
 #!/usr/bin/env python3
 
 from setuptools import setup, find_packages
-from pip.req import parse_requirements
 
-install_reqs = parse_requirements('./requirements.txt')
-
-reqs = [str(ir.req) for ir in install_reqs]
+with open('requirements.txt') as f:
+    requirements = f.read().splitlines()
 
 setup(name='slisonner',
       version='0.7.0',
@@ -16,6 +14,6 @@ setup(name='slisonner',
       maintainer='Nikita Pestrov',
       maintainer_email='nikita.pestrov@habidatum.com',
       packages=find_packages(),
-      install_requires=reqs,
+      install_requires=requirements,
       platforms='any',
       classifiers=['Programming Language :: Python :: 3.4'])
