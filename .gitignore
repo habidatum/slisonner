@@ -1,0 +1,8 @@
+*.pyc
+/env
+.cache
+.arcconfig
+.idea
+debian/
+build/
+*.egg-info/
