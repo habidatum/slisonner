@@ -11,7 +11,7 @@ def test_full_encode_decode_cycle():
 
     temp_slice_path = mocker.generate_slice(x_size, y_size, 'float32')
 
-    slice_meta_encoded, slison_filepath = encoder.encode_slice(
+    slice_meta_encoded, slison_filepath = encoder.encode_slice_file(
         filepath=temp_slice_path,
         slice_duration=300,
         timestamp=slice_id,

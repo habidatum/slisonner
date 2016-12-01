@@ -7,15 +7,20 @@ import lz4f
 import json
 
 
-def encode_slice(filepath, out_dir, **kwargs):
+def encode_slice_file(filepath, out_dir, **kwargs):
     slice_data = load_slice(filepath, kwargs['value_type'])
+    slice_meta, slison = encode_slice(slice_data, **kwargs)
+    slison_filepath = save_slison(slison, out_dir,
+                                  slice_meta['id'])
+    return slice_meta, slison_filepath
+
+
+def encode_slice(slice_data, **kwargs):
     compressed_slice_data = compress_slice(slice_data)
     slice_meta = get_slice_meta(slice_data, compressed_slice_data, kwargs)
     slice_meta['metrics'] = get_slice_metrics(slice_data)
     slison = pack_slice(compressed_slice_data, slice_meta)
-    slison_filepath = save_slison(slison, out_dir,
-                                  slice_meta['id'])
-    return slice_meta, slison_filepath
+    return slice_meta, slison
 
 
 def load_slice(filepath, value_type):
