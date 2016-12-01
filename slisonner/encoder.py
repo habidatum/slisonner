@@ -19,7 +19,8 @@ def encode_slice(slice_data, **kwargs):
     compressed_slice_data = compress_slice(slice_data)
     slice_meta = get_slice_meta(slice_data, compressed_slice_data, kwargs)
     slice_meta['metrics'] = get_slice_metrics(slice_data)
-    slison = pack_slice(compressed_slice_data, slice_meta)
+    slison_data = pack_slice(compressed_slice_data, slice_meta)
+    slison = slison_data.getvalue()
     return slice_meta, slison
 
 
@@ -95,5 +96,5 @@ def add_data_to_zip(data, filename, zip_archive):
 def save_slison(slison, out_dir, slison_id):
     out_filepath = path.join(out_dir, '{}.slison'.format(slison_id))
     with open(out_filepath, 'wb') as f:
-        f.write(slison.getvalue())
+        f.write(slison)
     return out_filepath
