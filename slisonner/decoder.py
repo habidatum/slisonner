@@ -6,7 +6,7 @@ from io import BytesIO
 
 
 def decode_slison_bytes(slison_bytes):
-    decode_slison(BytesIO(slison_bytes))
+    return decode_slison(BytesIO(slison_bytes))
 
 
 def decode_slison(file):
