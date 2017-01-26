@@ -6,7 +6,7 @@ from shutil import rmtree
 
 def test_full_encode_decode_cycle():
     temp_out_dir = mkdtemp()
-    slice_id = 86400
+    slice_id = '2015-01-02 00:00:00'
     x_size, y_size = 10, 16
 
     temp_slice_path = mocker.generate_slice(x_size, y_size, 'float32')
@@ -21,7 +21,6 @@ def test_full_encode_decode_cycle():
         value_type='float32',
         out_dir=temp_out_dir)
     slice_data, slice_meta_decoded = decoder.decode_slison(slison_filepath)
-
     for key, encoded_value in slice_meta_encoded.items():
         assert encoded_value == slice_meta_decoded[key]
 

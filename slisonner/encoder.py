@@ -57,10 +57,10 @@ def get_slice_meta(slice_data, compressed_slice_data, params):
 
 def get_slice_metrics(slice_data):
     metrics = {}
-
-    metrics['max'] = np.max(slice_data).item()
-    metrics['min'] = np.min(slice_data).item()
-    metrics['average'] = float(np.average(slice_data))
+    not_nan = ~np.isnan(slice_data)
+    metrics['max'] = np.max(slice_data[not_nan]).item()
+    metrics['min'] = np.min(slice_data[not_nan]).item()
+    metrics['average'] = float(np.average(slice_data[not_nan]))
 
     return metrics
 
