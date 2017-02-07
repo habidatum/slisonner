@@ -61,6 +61,7 @@ def get_slice_metrics(slice_data):
     metrics['max'] = np.max(slice_data[not_nan]).item()
     metrics['min'] = np.min(slice_data[not_nan]).item()
     metrics['average'] = float(np.average(slice_data[not_nan]))
+    metrics['nonEmpty'] = sum(not_nan)
 
     return metrics
 
