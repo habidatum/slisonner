@@ -6,7 +6,7 @@ with open('requirements.txt') as f:
     requirements = f.read().splitlines()
 
 setup(name='slisonner',
-      version='0.7.7',
+      version='0.7.8',
       description='Habidatum Platform Slison encode/decode utility',
       long_description='',
       author='Nikita Pestrov',
