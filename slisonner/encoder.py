@@ -53,7 +53,7 @@ def get_slice_meta(slice_data, compressed_slice_data, params):
     meta['id'] = str(params['timestamp'])
     meta['layerId'] = params['layer_id']
 
-    meta['rawSize'] = slice_data.nbytes
+    meta['rawSize'] = int(slice_data.nbytes)
     meta['compressedSize'] = len(compressed_slice_data)
     meta['size'] = [params['x_size'], params['y_size']]
     meta['valueType'] = params['value_type']
@@ -67,7 +67,7 @@ def get_slice_metrics(slice_data):
     metrics['max'] = np.max(slice_data[not_nan]).item()
     metrics['min'] = np.min(slice_data[not_nan]).item()
     metrics['average'] = float(np.average(slice_data[not_nan]))
-    metrics['nonEmpty'] = sum(not_nan)
+    metrics['nonEmpty'] = int(sum(not_nan))
 
     return metrics
 
