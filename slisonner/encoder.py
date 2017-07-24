@@ -44,6 +44,9 @@ def get_slice_meta(slice_data, compressed_slice_data, params):
     meta['duration'] = params['slice_duration']
     if 'tz' in params:
         meta['tz'] = params['tz']
+    if 'geoBounds' in params:
+        meta['geoBounds'] = params['geoBounds']
+
     meta['approximated'] = params.get('approximated', False)
 
     meta['ts'] = params['timestamp']
