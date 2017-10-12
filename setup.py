@@ -2,12 +2,15 @@
 
 from setuptools import setup, find_packages
 
-with open('requirements.txt') as f:
-    requirements = f.read().splitlines()
+
+requirements = ['lz4tools==1.3.1.2',
+'numpy==1.13.1',
+'py==1.4.31',
+'pytest==3.0.3']
 
 setup(name='slisonner',
       version='0.7.9',
-      description='Habidatum Platform Slison encode/decode utility',
+      description='Habidatum Chronotope Slison encode/decode utility',
       long_description='',
       author='Nikita Pestrov',
       author_email='nikita.pestrov@habidatum.com',
