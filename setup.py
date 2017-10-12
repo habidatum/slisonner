@@ -4,7 +4,7 @@ from setuptools import setup, find_packages
 
 
 requirements = ['lz4tools==1.3.1.2',
-'numpy==1.13.1',
+'numpy',
 'py==1.4.31',
 'pytest==3.0.3']
 
